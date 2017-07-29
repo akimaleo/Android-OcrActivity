@@ -1,5 +1,8 @@
 package com.letit0or1.akimaleo.orcomniecommerce;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -8,6 +11,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -16,16 +20,29 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView resultText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        resultText = (TextView) findViewById(R.id.data);
+
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CropImage.activity()
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .start(MainActivity.this);
+            }
+        });
+        findViewById(R.id.copy).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("ocr", resultText.getText());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(MainActivity.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -43,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 String q = OpticalCharacterRecognizer.extractText(bitmap, this);
-                ((TextView) findViewById(R.id.data)).setText(q);
+                resultText.setText(q);
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
             }
