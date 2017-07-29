@@ -1,4 +1,4 @@
-package com.letit0or1.akimaleo.orcomniecommerce;
+package com.letit0or1.akimaleo.opticalcharacterrecognizer;
 
 import android.content.Context;
 import android.content.Intent;
@@ -60,7 +60,7 @@ public class OpticalCharacterRecognizer {
             for (int i = 0; i < textBlocks.size(); i++) {
                 TextBlock textBlock = textBlocks.get(textBlocks.keyAt(i));
                 extractedText += textBlock.getValue();
-                Log.e(LOG_TAG, textBlock.getValue());
+                Log.i(LOG_TAG, textBlock.getValue());
                 // Do something with value
             }
         }
