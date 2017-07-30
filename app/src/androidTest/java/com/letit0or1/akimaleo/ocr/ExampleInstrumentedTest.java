@@ -1,4 +1,4 @@
-package com.letit0or1.akimaleo.orcomniecommerce;
+package com.letit0or1.akimaleo.ocr;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.letit0or1.akimaleo.orcomniecommerce", appContext.getPackageName());
+        assertEquals("com.letit0or1.akimaleo.orc", appContext.getPackageName());
     }
 }

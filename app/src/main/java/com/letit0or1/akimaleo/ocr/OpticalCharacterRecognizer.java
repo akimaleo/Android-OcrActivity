@@ -1,4 +1,4 @@
-package com.letit0or1.akimaleo.orcomniecommerce;
+package com.letit0or1.akimaleo.ocr;
 
 import android.content.Context;
 import android.content.Intent;
