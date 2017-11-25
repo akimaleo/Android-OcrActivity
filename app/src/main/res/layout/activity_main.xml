@@ -1,42 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.letit0or1.akimaleo.ocr.MainActivity">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="59dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/take_photo"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_photo_camera_black_24dp"
+                android:tint="#248270" />
+
+            <ImageView
+                android:id="@+id/set_editable"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_create_black_24dp"
+                android:tint="#248270" />
+
+            <ImageView
+                android:id="@+id/check"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/set_editable"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/set_editable"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_done_black_24dp"
+                android:tint="#248270"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <EditText
+        android:id="@+id/data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_above="@+id/bot"
+        android:layout_below="@+id/top"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="Result will be here"
+        android:padding="15dp" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Get photo" />
+    <LinearLayout
+        android:id="@+id/bot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#248270"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
+        <ImageView
             android:id="@+id/copy"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@android:string/copy" />
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_content_copy_black_24dp"
+            android:text="@android:string/copy"
+            android:tint="#fff" />
     </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp">
-
-        <TextView
-            android:id="@+id/data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="result"
-            android:textSize="25sp" />
-    </ScrollView>
-
-</LinearLayout>
+</RelativeLayout>

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Android-OcrActivity.iml" filepath="$PROJECT_DIR$/Android-OcrActivity.iml" />
       <module fileurl="file://$PROJECT_DIR$/Android-OcrOmnieCommerce.iml" filepath="$PROJECT_DIR$/Android-OcrOmnieCommerce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-OpticalCharacterRecognizer.iml" filepath="$PROJECT_DIR$/Android-OpticalCharacterRecognizer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/opticalcharacterrecognizer/opticalcharacterrecognizer.iml" filepath="$PROJECT_DIR$/opticalcharacterrecognizer/opticalcharacterrecognizer.iml" />
     </modules>
