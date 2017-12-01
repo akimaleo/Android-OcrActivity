@@ -22,7 +22,7 @@ public class OpticalCharacterRecognizer {
 //    public static String DATA_PATH = "src/main/assets/tessdata";
 
     public static String extractText(Bitmap imageBitmap, Context context) {
-        String extractedText = "";
+        StringBuilder extractedText = new StringBuilder();
         // imageBitmap is the Bitmap image you're trying to process for text
         if (imageBitmap != null) {
 
@@ -59,12 +59,11 @@ public class OpticalCharacterRecognizer {
 
             for (int i = 0; i < textBlocks.size(); i++) {
                 TextBlock textBlock = textBlocks.get(textBlocks.keyAt(i));
-                extractedText += textBlock.getValue();
+                extractedText.append(textBlock.getValue());
                 Log.i(LOG_TAG, textBlock.getValue());
-                // Do something with value
             }
         }
-        return extractedText;
+        return extractedText.toString();
     }
 
 }
