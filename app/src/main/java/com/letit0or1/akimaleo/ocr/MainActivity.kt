@@ -22,8 +22,10 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var keyListener: KeyListener
-
+    /**
+     * For preventing and allowing editText editing
+     **/
+    private lateinit var keyListener: KeyListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,15 +64,17 @@ class MainActivity : AppCompatActivity() {
     private fun setEditable(setEditable: Boolean) {
         if (setEditable) {
             check.visibility = View.VISIBLE
+            data.isCursorVisible = true
             data.keyListener = keyListener
         } else {
             check.visibility = View.INVISIBLE
             data.keyListener = null
+            data.isCursorVisible = false
             hideSoftwareKeyboard()
         }
     }
 
-    private fun showCopyToolTip() {
+    private fun showCopyTooltip() {
         Tooltip.make(this,
                 Tooltip.Builder(100)
                         .anchor(copy, Tooltip.Gravity.TOP)
@@ -102,7 +106,7 @@ class MainActivity : AppCompatActivity() {
 
                 val q = com.letit0or1.akimaleo.opticalcharacterrecognizer.OpticalCharacterRecognizer.extractText(bitmap, this)
                 data.setText(q)
-                showCopyToolTip()
+                showCopyTooltip()
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 val error = result.error
             }
