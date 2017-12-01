@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,18 +9,19 @@
     <android.support.v7.widget.CardView
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="59dp">
+        android:layout_height="?android:attr/actionBarSize">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <ImageView
                 android:id="@+id/take_photo"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
                 android:src="@drawable/ic_photo_camera_black_24dp"
                 android:tint="#248270" />
 
@@ -30,7 +30,6 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
                 android:src="@drawable/ic_create_black_24dp"
                 android:tint="#248270" />
 
@@ -43,7 +42,7 @@
                 android:layout_alignRight="@+id/set_editable"
                 android:layout_marginBottom="10dp"
                 android:src="@drawable/ic_done_black_24dp"
-                android:tint="#248270"/>
+                android:tint="#248270" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
@@ -55,7 +54,7 @@
         android:layout_below="@+id/top"
         android:background="@null"
         android:gravity="top"
-        android:hint="Result will be here"
+        android:hint="@string/result_will_be_here"
         android:padding="15dp" />
 
     <LinearLayout
@@ -64,13 +63,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#248270"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/copy"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_margin="10dp"
             android:src="@drawable/ic_content_copy_black_24dp"
             android:text="@android:string/copy"
             android:tint="#fff" />
