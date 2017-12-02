@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     private fun showCopyTooltip() {
         Tooltip.make(this,
                 Tooltip.Builder(100)
-                        .anchor(copy, Tooltip.Gravity.TOP)
+                        .anchor(tooltip_anchor, Tooltip.Gravity.TOP)
                         .closePolicy(Tooltip.ClosePolicy()
                                 .insidePolicy(true, false)
                                 .outsidePolicy(true, false), 2000)
@@ -92,10 +92,10 @@ class MainActivity : AppCompatActivity() {
         ).show()
     }
 
-    public override fun onActivityResult(requestCode: Int, resultCode: Int, dataIntent: Intent) {
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            val result = CropImage.getActivityResult(dataIntent)
-            if (resultCode == Activity.RESULT_OK) {
+    public override fun onActivityResult(requestCode: Int, resultCode: Int, dataIntent: Intent?) {
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+                val result = CropImage.getActivityResult(dataIntent)
                 val resultUri = result.uri
                 var bitmap: Bitmap? = null
                 try {
@@ -107,8 +107,6 @@ class MainActivity : AppCompatActivity() {
                 val q = com.letit0or1.akimaleo.opticalcharacterrecognizer.OpticalCharacterRecognizer.extractText(bitmap, this)
                 data.setText(q)
                 showCopyTooltip()
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                val error = result.error
             }
         }
     }
